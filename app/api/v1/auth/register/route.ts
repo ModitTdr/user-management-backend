@@ -22,7 +22,7 @@ export async function POST(req: Request) {
   if (!email) missingField.push("email");
   if (!password) missingField.push("password");
   if (missingField.length > 0) {
-    return badRequest(`${missingField} is required`);
+    return badRequest(`${missingField.join(", ")} is required`);
   }
 
   try {

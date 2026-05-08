@@ -45,9 +45,11 @@ export async function POST(req: Request) {
       }
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _password, refreshToken, ...userData } = updatedToken;
     await setCookies("refreshToken", refresh);
     await setCookies("accessToken", access);
+
     return created("User Logged In", { userData, accessToken: access });
   } catch (error) {
     console.error(error);
